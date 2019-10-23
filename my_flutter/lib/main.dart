@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
         appBar: new AppBar(
           title: new Text('Welcome to Flutter'),
           elevation: 5,//设置阴影
-          leading: IconButton(
-            icon: Icon(Icons.memory),
-            tooltip: "Navigation",
-            onPressed: () => debugPrint('点击了导航栏上的按钮'),
-          ),
+          // leading: IconButton(
+          //   icon: Icon(Icons.memory),
+          //   tooltip: "Navigation",
+          //   onPressed: () => debugPrint('点击了导航栏上的按钮'),
+          // ),
           bottom: TabBar(
             unselectedLabelColor: Colors.red,//设置未选中的颜色
             indicatorColor: Colors.blue,//设置滚动线条的颜色
@@ -42,7 +42,23 @@ class MyApp extends StatelessWidget {
         ),
         body: CustomTabBarView(),
         drawer: DrawerLigtt(),//Text('左抽屉'),//抽屉效果 - 左抽屉
-        endDrawer: Text('右抽屉'),//抽屉效果 - 右抽屉
+        endDrawer: DrawerRight(),//抽屉效果 - 右抽屉
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.highlight),
+              title: Text('his')
+            ),
+             BottomNavigationBarItem(
+              icon: Icon(Icons.access_time),
+              title: Text('time')
+            ),
+              BottomNavigationBarItem(
+              icon: Icon(Icons.accessible_forward),
+              title: Text('forward')
+            ),
+          ],
+        ),
            ),
       ),
       theme: ThemeData(
