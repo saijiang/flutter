@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'demo/listView_demo.dart';
-
+import 'package:my_flutter/demo/listView_demo.dart';
+import 'demo/drawer_light_demo.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       title: 'Welcome to Flutter',
       debugShowCheckedModeBanner: false,//去掉右上角的debug标签
       home: DefaultTabController(
-          length: 3,
+           length: 3,
            child: Scaffold(
           
         appBar: new AppBar(
@@ -22,6 +22,10 @@ class MyApp extends StatelessWidget {
             onPressed: () => debugPrint('点击了导航栏上的按钮'),
           ),
           bottom: TabBar(
+            unselectedLabelColor: Colors.red,//设置未选中的颜色
+            indicatorColor: Colors.blue,//设置滚动线条的颜色
+            // indicatorSize: TabBarIndicatorSize.label,//设置滚动线条的大小
+            indicatorWeight: 1.0,//设置高度
            tabs: <Widget>[
              Tab(icon: Icon(Icons.local_activity),),
              Tab(icon: Icon(Icons.local_airport),),
@@ -36,13 +40,15 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
-        // body: HomeListView(),
         body: CustomTabBarView(),
-     
+        drawer: DrawerLigtt(),//Text('左抽屉'),//抽屉效果 - 左抽屉
+        endDrawer: Text('右抽屉'),//抽屉效果 - 右抽屉
            ),
       ),
       theme: ThemeData(
-        primarySwatch: Colors.yellow
+        primarySwatch: Colors.yellow,
+        highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+        splashColor: Colors.blue
       ),
     );
   }
@@ -53,8 +59,8 @@ class CustomTabBarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarView(
       children: <Widget>[
-       Icon(Icons.local_activity,size: 120,color: Colors.black12,),
-
+      //  Icon(Icons.local_activity,size: 120,color: Colors.black12,),
+       HomeListView(),
        Icon(Icons.local_airport,size: 120,color: Colors.blueGrey,),
        Icon(Icons.local_bar,size: 120,color: Colors.blue,),
       ],
