@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter/demo/listView_demo.dart';
 import 'demo/drawer_light_demo.dart';
-void main() => runApp(MyApp());
+import 'demo/navigation_bottom_demo.dart';
+// void main() => runApp(MyApp());
+
+void main() => runApp(FlutterApp());
+
+
+
+class FlutterApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: CustomBottomNavigationBar(),
+    );
+  }
+}
+
+
 
 class MyApp extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -13,7 +31,7 @@ class MyApp extends StatelessWidget {
            length: 3,
            child: Scaffold(
           
-        appBar: new AppBar(
+        appBar: AppBar(
           title: new Text('Welcome to Flutter'),
           elevation: 5,//设置阴影
           // leading: IconButton(
@@ -40,25 +58,11 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
+        
         body: CustomTabBarView(),
         drawer: DrawerLigtt(),//Text('左抽屉'),//抽屉效果 - 左抽屉
         endDrawer: DrawerRight(),//抽屉效果 - 右抽屉
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.highlight),
-              title: Text('his')
-            ),
-             BottomNavigationBarItem(
-              icon: Icon(Icons.access_time),
-              title: Text('time')
-            ),
-              BottomNavigationBarItem(
-              icon: Icon(Icons.accessible_forward),
-              title: Text('forward')
-            ),
-          ],
-        ),
+        bottomNavigationBar: CustomBottomNavigationBar(),
            ),
       ),
       theme: ThemeData(
@@ -70,16 +74,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class CustomTabBarView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return TabBarView(
-      children: <Widget>[
-      //  Icon(Icons.local_activity,size: 120,color: Colors.black12,),
-       HomeListView(),
-       Icon(Icons.local_airport,size: 120,color: Colors.blueGrey,),
-       Icon(Icons.local_bar,size: 120,color: Colors.blue,),
-      ],
-    );
-  }
-}

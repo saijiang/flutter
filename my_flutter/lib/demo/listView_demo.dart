@@ -53,3 +53,17 @@ height: 16.0,
     );
   }
 }
+
+class CustomTabBarView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TabBarView(
+      children: <Widget>[
+      //  Icon(Icons.local_activity,size: 120,color: Colors.black12,),
+       HomeListView(),
+       Icon(Icons.local_airport,size: 120,color: Colors.blueGrey,),
+       Icon(Icons.local_bar,size: 120,color: Colors.blue,),
+      ],
+    );
+  }
+}
