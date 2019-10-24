@@ -16,6 +16,7 @@ class CustomHisContrlloer extends StatelessWidget {
          title: Text('首页'),
 
        ),
+       backgroundColor: Color(0xffEDEFF4),
        body: CustomScrollView(
          shrinkWrap: true,
          //内容
@@ -36,21 +37,29 @@ class CustomHisContrlloer extends StatelessWidget {
                           height: 20,
                         ),
                         const Text('为您推荐',style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.bold),),
+                        SizedBox(
+                          height: 15,
+                        ),
                        CustomCellView(),
-                        const Text('D'),
+                       Container(
+                        //  height: 480,
+                         child: ListView.builder(
+                           physics: NeverScrollableScrollPhysics(),//列表禁止滚动
+                           itemCount: 3,
+                           shrinkWrap: true,//解决无限高的问题
+                           itemBuilder: (context , index){
+                             return  CustomCellView();
+                           },
+                         ),
+                       ),
+
+                        // const Text('D'),
                    ],
                ),
              ),
            )
          ],
-       ),
-      //  body: Container(
-      //        width: ScreenUtil.screenWidth,
-      //        height: ScreenUtil.getInstance().setHeight(400),
-      //        color: Colors.red,
-      //        child: CustomScroll(),
-      //      ),
-       
+       ),       
     );
   }
 }
@@ -64,13 +73,19 @@ class CustomScroll extends StatelessWidget {
           return new Image.network(posts[index].imageUrl,fit: BoxFit.fill,);////fit: BoxFit.fill,
         },
         itemCount: posts.length,
-        // itemHeight: 200,//ScreenUtil.getInstance().setHeight(200),
-        // itemWidth:  200,//ScreenUtil.getInstance().scaleWidth,
-// viewportFraction: 0.8,
-// scale: 0.9,
-        // layout: SwiperLayout.DEFAULT,
-        // pagination: new SwiperPagination(),
-        // control: new SwiperControl(),
+        autoplay: true,
+        outer: true,
+        duration: 200,//持续时间 单位毫秒
+        pagination: SwiperPagination(
+          ///显示默认分页指示器
+          alignment: Alignment.bottomCenter,
+          builder: SwiperPagination.dots
+        ),//展示默认分页指示器
+      
+        onTap: (int index){
+          print('#index');
+        },
+
     );
   }
 }
