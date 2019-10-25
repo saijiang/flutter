@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../detailsController/finaction_list_demo.dart';
 
 class CustomCellView extends StatefulWidget {
   @override
@@ -8,9 +9,20 @@ class CustomCellView extends StatefulWidget {
 class _CustomCellViewState extends State<CustomCellView> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap:() {
+        debugPrint('点击事件');
+/////   路由页面跳转 
+        Navigator.push(
+          context, 
+          MaterialPageRoute(builder: (context) => CustomFianactionList())
+        );
+
+      },
+       child: Container(
       color: Color(0xffEDEFF4),
       height: 180,
+      
       child: Column(
         children: <Widget>[
           Container(
@@ -161,6 +173,7 @@ class _CustomCellViewState extends State<CustomCellView> {
    SizedBox(height: 10,)
         ],
       )
+       )
     );
   }
 }
