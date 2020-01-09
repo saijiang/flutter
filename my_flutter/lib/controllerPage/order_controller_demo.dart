@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../demo/contnerController/counter_demo.dart';
 
 class CustomForWardContrlloer extends StatelessWidget {
   @override
@@ -7,7 +8,7 @@ class CustomForWardContrlloer extends StatelessWidget {
       appBar: AppBar(
         title: Text('抢单'),
       ),
-      body: Text('这是内容'),
+      body: MyApp(),
     );
   }
 }
