@@ -5,6 +5,7 @@ import '../demo/contnerController/image_Icon_demo.dart';
 import '../demo/contnerController/switch_demo.dart';
 import '../demo/contnerController/textFiled_demo.dart';
 import '../demo/contnerController/progress_demo.dart';
+import '../demo/contnerController/progress_Animation_demo.dart';
 class CustomTimeContrlloer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -80,6 +81,18 @@ class CustomTimeContrlloer extends StatelessWidget {
               Navigator.push(context, 
               MaterialPageRoute(builder: (context){
                 return ProgressApp();
+              })
+              );
+            },
+          ),
+
+                    RaisedButton(
+            child: Text('进度指示器动画效果'),
+            color: Colors.yellow,
+            onPressed: (){
+              Navigator.push(context, 
+              MaterialPageRoute(builder: (context){
+                return ProgressRoute();
               })
               );
             },
