@@ -6,6 +6,8 @@ import '../demo/contnerController/switch_demo.dart';
 import '../demo/contnerController/textFiled_demo.dart';
 import '../demo/contnerController/progress_demo.dart';
 import '../demo/contnerController/progress_Animation_demo.dart';
+import '../demo/contnerController/row_colum_demo.dart';
+import '../demo/contnerController/flex_demo.dart';
 class CustomTimeContrlloer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -97,6 +99,29 @@ class CustomTimeContrlloer extends StatelessWidget {
               );
             },
           ),
+           RaisedButton(
+            child: Text('RowCloumDemo'),
+            color: Colors.yellow,
+            onPressed: (){
+              Navigator.push(context, 
+              MaterialPageRoute(builder: (context){
+                return RowCloumDemo();
+              })
+              );
+            },
+          ),
+        RaisedButton(
+            child: Text('FlexDemo'),
+            color: Colors.yellow,
+            onPressed: (){
+              Navigator.push(context, 
+              MaterialPageRoute(builder: (context){
+                return FlexDemoApp();
+              })
+              );
+            },
+          ),
+
 
           ],
         ),

@@ -25,6 +25,7 @@ class _ProgressRouteState extends State<ProgressRoute>
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
